@@ -3,10 +3,10 @@ import './App.css';
 
 const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus a quam elit. Vestibulum et eros porta, vehicula nisl eu, blandit sapien. Donec suscipit lacus non vehicula tincidunt. Sed sit amet gravida nisl. In hac habitasse platea dictumst. Sed fringilla mauris et orci bibendum consequat. Pellentesque sed eros vitae justo condimentum pharetra a quis libero. Proin justo nibh, dignissim a felis sed, pellentesque pretium velit. Ut pharetra augue eu dui rhoncus tempor. Pellentesque non enim vel ligula fermentum rutrum. Pellentesque lectus eros, tincidunt eu bibendum sed, efficitur id risus. Morbi sagittis, dolor eu varius lacinia, mi nisi iaculis nisl, eget fermentum justo leo vel orci.';
 
-function ButtonTagger({ onClick, tag, label = null}) {
+function ButtonTagger({ onClick, tag, closeTag = null, label = null}) {
 
   return (
-    <button onClick={() => onClick(tag)}>
+    <button onClick={() => onClick(tag, closeTag)}>
       {label || tag}
     </button>
   );
@@ -16,9 +16,9 @@ function App() {
   const [editorContent, setEditorContent] = useState(lorem);
   const editor = useRef(null);
 
-  const surroundWith = (text, tag) => `<${tag}>${text}</${tag}>`;
+  const surroundWith = (text, tag, closeTag) => `<${tag}>${text}</${closeTag || tag}>`;
 
-  const surroundSelection = tag => {
+  const surroundSelection = (tag, closeTag = null) => {
     const cursorStart = editor.current.selectionStart;
     const cursorEnd = editor.current.selectionEnd;
 
@@ -26,7 +26,7 @@ function App() {
     const middleText = editorContent.substring(cursorStart, cursorEnd);
     const rightText = editorContent.substring(cursorEnd, editorContent.length);
 
-    setEditorContent(`${leftText}${surroundWith(middleText, tag)}${rightText}`);
+    setEditorContent(`${leftText}${surroundWith(middleText, tag, closeTag)}${rightText}`);
   };
 
   return (
@@ -55,6 +55,12 @@ function App() {
       <ButtonTagger
         onClick={surroundSelection}
         tag="p"
+      />
+      <ButtonTagger
+        onClick={surroundSelection}
+        label='auto-breaths'
+        tag='amazon:auto-breaths volume="x-soft" frequency="x-low" duration="x-short"'
+        closeTag='amazon:auto-breaths'
       />
     </div>
   );
