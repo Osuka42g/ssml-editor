@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/ssml-editor/static/css/main.d1b05096.chunk.css",
+    "main.js": "/ssml-editor/static/js/main.77dbdc74.chunk.js",
+    "main.js.map": "/ssml-editor/static/js/main.77dbdc74.chunk.js.map",
+    "runtime-main.js": "/ssml-editor/static/js/runtime-main.a83de348.js",
+    "runtime-main.js.map": "/ssml-editor/static/js/runtime-main.a83de348.js.map",
+    "static/js/2.a1fed77d.chunk.js": "/ssml-editor/static/js/2.a1fed77d.chunk.js",
+    "static/js/2.a1fed77d.chunk.js.map": "/ssml-editor/static/js/2.a1fed77d.chunk.js.map",
+    "index.html": "/ssml-editor/index.html",
+    "precache-manifest.9e87687405b89387f3a1964d17a282c7.js": "/ssml-editor/precache-manifest.9e87687405b89387f3a1964d17a282c7.js",
+    "service-worker.js": "/ssml-editor/service-worker.js",
+    "static/css/main.d1b05096.chunk.css.map": "/ssml-editor/static/css/main.d1b05096.chunk.css.map",
+    "static/js/2.a1fed77d.chunk.js.LICENSE": "/ssml-editor/static/js/2.a1fed77d.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a83de348.js",
+    "static/js/2.a1fed77d.chunk.js",
+    "static/css/main.d1b05096.chunk.css",
+    "static/js/main.77dbdc74.chunk.js"
+  ]
+}
