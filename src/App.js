@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import './App.css';
 
-const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus a quam elit. Vestibulum et eros porta, vehicula nisl eu, blandit sapien. Donec suscipit lacus non vehicula tincidunt. Sed sit amet gravida nisl. In hac habitasse platea dictumst. Sed fringilla mauris et orci bibendum consequat. Pellentesque sed eros vitae justo condimentum pharetra a quis libero. Proin justo nibh, dignissim a felis sed, pellentesque pretium velit. Ut pharetra augue eu dui rhoncus tempor. Pellentesque non enim vel ligula fermentum rutrum. Pellentesque lectus eros, tincidunt eu bibendum sed, efficitur id risus. Morbi sagittis, dolor eu varius lacinia, mi nisi iaculis nisl, eget fermentum justo leo vel orci.';
+const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...';
 
 function ButtonTagger({ onClick, tag, closeTag = null, label = null}) {
 
@@ -11,6 +11,17 @@ function ButtonTagger({ onClick, tag, closeTag = null, label = null}) {
     </button>
   );
 };
+
+const buttonsCollection = [
+  { tag: 'speak' },
+  { tag: 'emphasis' },
+  { tag: 'p' },
+  {
+    label: 'auto-breaths',
+    tag: 'amazon:auto-breaths volume="x-soft" frequency="x-low" duration="x-short"',
+    closeTag: 'amazon:auto-breaths',
+  }
+];
 
 function App() {
   const [editorContent, setEditorContent] = useState(lorem);
