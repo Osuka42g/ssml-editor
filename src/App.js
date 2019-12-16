@@ -2,10 +2,10 @@ import React, { useState, useRef } from 'react';
 import Hotkeys from 'react-hot-keys';
 import './App.css';
 
-const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...';
+const localStorageKey = 'SSML_WIP';
+const intro = 'Get more info about SSML tags in https://docs.aws.amazon.com/us_us/polly/latest/dg/supportedtags.html#lang-tag';
 
 function ButtonTagger({ onClick, tag, closeTag = null, label = null }) {
-
   return (
     <button onClick={() => onClick(tag, closeTag)}>
       {label || tag}
@@ -41,7 +41,7 @@ const buttonsCollection = [
 const allHotkeys = buttonsCollection.map(e => e.hotkeys).flat().join(',');
 
 function App() {
-  const [editorContent, setEditorContent] = useState(lorem);
+  const [editorContent, setEditorContent] = useState(localStorage.getItem(localStorageKey) || intro);
   const editor = useRef(null);
 
   const surroundWith = (text, tag, closeTag) => `<${tag}>${text}</${closeTag || tag}>`;
@@ -56,6 +56,11 @@ function App() {
 
     setEditorContent(`${leftText}${surroundWith(middleText, tag, closeTag)}${rightText}`);
   };
+
+  const handleTextareaChange = text => {
+    setEditorContent(text);
+    localStorage.setItem(localStorageKey, text);
+  }
 
   const onKeyDown = (keyName, e) => {
     e.preventDefault();
@@ -82,7 +87,7 @@ function App() {
         <textarea
           ref={editor}
           value={editorContent}
-          onChange={e => setEditorContent(e.target.value)}
+          onChange={e => handleTextareaChange(e.target.value)}
           rows={15}
           style={{
             width: '90%',
