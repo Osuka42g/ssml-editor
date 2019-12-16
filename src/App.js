@@ -4,7 +4,7 @@ import './App.css';
 
 const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...';
 
-function ButtonTagger({ onClick, tag, closeTag = null, label = null}) {
+function ButtonTagger({ onClick, tag, closeTag = null, label = null }) {
 
   return (
     <button onClick={() => onClick(tag, closeTag)}>
@@ -22,6 +22,17 @@ const buttonsCollection = [
     tag: 'amazon:auto-breaths volume="x-soft" frequency="x-low" duration="x-short"',
     closeTag: 'amazon:auto-breaths',
     hotkeys: ['command+b', 'alt+b']
+  },
+  {
+    label: 'lang (en-US)',
+    tag: 'lang xml:lang="en-US"',
+    closeTag: 'lang',
+    hotkeys: ['command+l', 'alt+l']
+  },
+  {
+    label: 'lang (fr-FR)',
+    tag: 'lang xml:lang="fr-FR"',
+    closeTag: 'lang'
   }
 ];
 
@@ -75,6 +86,7 @@ function App() {
             width: '90%',
             height: '90%',
           }}
+          className="mainTextArea"
         >
         </textarea>
       </Hotkeys>
@@ -86,6 +98,7 @@ function App() {
         tag='amazon:auto-breaths volume="x-soft" frequency="x-low" duration="x-short"'
         closeTag='amazon:auto-breaths'
       />)}
+      <p>hotkeys: cmd / alt + Modifier</p>
     </div>
   );
 }
