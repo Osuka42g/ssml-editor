@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "cfd3ad26ef8cffaf5a5a2e6bc1142376",
+    "revision": "24a4b7ef095e0e626a95c5bf969be9ce",
     "url": "/ssml-editor/index.html"
   },
   {
-    "revision": "e4ce36f7f77425a2f403",
+    "revision": "ac196530437fdcee2149",
     "url": "/ssml-editor/static/css/main.eab24d3c.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ssml-editor/static/js/2.0a8251e3.chunk.js.LICENSE"
   },
   {
-    "revision": "e4ce36f7f77425a2f403",
-    "url": "/ssml-editor/static/js/main.2f69036a.chunk.js"
+    "revision": "ac196530437fdcee2149",
+    "url": "/ssml-editor/static/js/main.64441e53.chunk.js"
   },
   {
     "revision": "194eb46c503d5e972962",
