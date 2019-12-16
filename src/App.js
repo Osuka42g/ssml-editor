@@ -14,25 +14,27 @@ function ButtonTagger({ onClick, tag, closeTag = null, label = null }) {
 };
 
 const buttonsCollection = [
-  { tag: 'speak', hotkeys: ['command+s', 'alt+s'] },
-  { tag: 'emphasis', hotkeys: ['command+e', 'alt+e'] },
-  { tag: 'p', hotkeys: ['command+p', 'alt+p'] },
+  { label: '(s)peak', tag: 'speak', hotkeys: ['command+s', 'alt+s'] },
+  { label: '(e)mphasis', tag: 'emphasis', hotkeys: ['command+e', 'alt+e'] },
+  { label: '(p)', tag: 'p', hotkeys: ['command+p', 'alt+p'] },
+  { label: 'brea(k)', tag: 'break', hotkeys: ['command+k', 'alt+k'] },
   {
-    label: 'auto-breaths',
+    label: 'auto-(b)reaths',
     tag: 'amazon:auto-breaths volume="x-soft" frequency="x-low" duration="x-short"',
     closeTag: 'amazon:auto-breaths',
     hotkeys: ['command+b', 'alt+b']
   },
   {
-    label: 'lang (en-US)',
+    label: '(l)ang en-US',
     tag: 'lang xml:lang="en-US"',
     closeTag: 'lang',
     hotkeys: ['command+l', 'alt+l']
   },
   {
-    label: 'lang (fr-FR)',
+    label: 'lang fr-FR',
     tag: 'lang xml:lang="fr-FR"',
-    closeTag: 'lang'
+    closeTag: 'lang',
+    hotkeys: []
   }
 ];
 
@@ -86,7 +88,6 @@ function App() {
             width: '90%',
             height: '90%',
           }}
-          className="mainTextArea"
         >
         </textarea>
       </Hotkeys>
@@ -98,7 +99,7 @@ function App() {
         tag='amazon:auto-breaths volume="x-soft" frequency="x-low" duration="x-short"'
         closeTag='amazon:auto-breaths'
       />)}
-      <p>hotkeys: cmd / alt + Modifier</p>
+      <p>hotkeys: cmd / alt + (Mod)</p>
     </div>
   );
 }
