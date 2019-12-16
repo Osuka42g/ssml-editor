@@ -101,8 +101,8 @@ function App() {
         key={i}
         onClick={surroundSelection}
         label={e.label || e.tag}
-        tag='amazon:auto-breaths volume="x-soft" frequency="x-low" duration="x-short"'
-        closeTag='amazon:auto-breaths'
+        tag={e.tag}
+        closeTag={e.closeTag}
       />)}
       <p>hotkeys: cmd / alt + (Mod)</p>
     </div>

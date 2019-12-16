@@ -12,6 +12,7 @@ Features:
 - Autosave with localstorage
 
 Todo:
+- Support for undo
 - Enhance with dark style
 - Support for syntax highlighter
 - Add more tags
