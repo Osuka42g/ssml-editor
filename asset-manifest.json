@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/ssml-editor/static/css/main.d1b05096.chunk.css",
-    "main.js": "/ssml-editor/static/js/main.9910a021.chunk.js",
-    "main.js.map": "/ssml-editor/static/js/main.9910a021.chunk.js.map",
+    "main.css": "/ssml-editor/static/css/main.eab24d3c.chunk.css",
+    "main.js": "/ssml-editor/static/js/main.2f69036a.chunk.js",
+    "main.js.map": "/ssml-editor/static/js/main.2f69036a.chunk.js.map",
     "runtime-main.js": "/ssml-editor/static/js/runtime-main.a83de348.js",
     "runtime-main.js.map": "/ssml-editor/static/js/runtime-main.a83de348.js.map",
     "static/js/2.0a8251e3.chunk.js": "/ssml-editor/static/js/2.0a8251e3.chunk.js",
     "static/js/2.0a8251e3.chunk.js.map": "/ssml-editor/static/js/2.0a8251e3.chunk.js.map",
     "index.html": "/ssml-editor/index.html",
-    "precache-manifest.db6ae1884af601909100df1a4b17a063.js": "/ssml-editor/precache-manifest.db6ae1884af601909100df1a4b17a063.js",
+    "precache-manifest.96ea1997de102fb101effc0714303027.js": "/ssml-editor/precache-manifest.96ea1997de102fb101effc0714303027.js",
     "service-worker.js": "/ssml-editor/service-worker.js",
-    "static/css/main.d1b05096.chunk.css.map": "/ssml-editor/static/css/main.d1b05096.chunk.css.map",
+    "static/css/main.eab24d3c.chunk.css.map": "/ssml-editor/static/css/main.eab24d3c.chunk.css.map",
     "static/js/2.0a8251e3.chunk.js.LICENSE": "/ssml-editor/static/js/2.0a8251e3.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.a83de348.js",
     "static/js/2.0a8251e3.chunk.js",
-    "static/css/main.d1b05096.chunk.css",
-    "static/js/main.9910a021.chunk.js"
+    "static/css/main.eab24d3c.chunk.css",
+    "static/js/main.2f69036a.chunk.js"
   ]
 }
