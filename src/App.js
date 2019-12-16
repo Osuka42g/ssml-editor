@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import Hotkeys from 'react-hot-keys';
 import './App.css';
 
 const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...';
@@ -13,15 +14,18 @@ function ButtonTagger({ onClick, tag, closeTag = null, label = null}) {
 };
 
 const buttonsCollection = [
-  { tag: 'speak' },
-  { tag: 'emphasis' },
-  { tag: 'p' },
+  { tag: 'speak', hotkeys: ['command+s', 'alt+s'] },
+  { tag: 'emphasis', hotkeys: ['command+e', 'alt+e'] },
+  { tag: 'p', hotkeys: ['command+p', 'alt+p'] },
   {
     label: 'auto-breaths',
     tag: 'amazon:auto-breaths volume="x-soft" frequency="x-low" duration="x-short"',
     closeTag: 'amazon:auto-breaths',
+    hotkeys: ['command+b', 'alt+b']
   }
 ];
+
+const allHotkeys = buttonsCollection.map(e => e.hotkeys).flat().join(',');
 
 function App() {
   const [editorContent, setEditorContent] = useState(lorem);
@@ -40,39 +44,48 @@ function App() {
     setEditorContent(`${leftText}${surroundWith(middleText, tag, closeTag)}${rightText}`);
   };
 
+  const onKeyDown = (keyName, e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const { tag, closeTag } = buttonsCollection.filter(e => e.hotkeys.includes(keyName))[0];
+    surroundSelection(tag, closeTag);
+  }
+
+  const onKeyUp = (_, e) => {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+
   return (
     <div className='App'>
       <h3>SSML Editor</h3>
-      <textarea
-        ref={editor}
-        value={editorContent}
-        onChange={e => setEditorContent(e.target.value)}
-        rows={15}
-        style={{
-          width: '90%',
-          height: '90%',
-        }}
+      <Hotkeys
+        keyName={allHotkeys}
+        onKeyDown={onKeyDown.bind(this)}
+        onKeyUp={onKeyUp.bind(this)}
+        allowRepeat={true}
+        filter={(e) => e.target.type === 'textarea'}
       >
-      </textarea>
+        <textarea
+          ref={editor}
+          value={editorContent}
+          onChange={e => setEditorContent(e.target.value)}
+          rows={15}
+          style={{
+            width: '90%',
+            height: '90%',
+          }}
+        >
+        </textarea>
+      </Hotkeys>
       <hr />
-      <ButtonTagger
+      {buttonsCollection.map((e, i) => <ButtonTagger
+        key={i}
         onClick={surroundSelection}
-        tag="speak"
-        />
-      <ButtonTagger
-        onClick={surroundSelection}
-        tag="emphasis"
-      />
-      <ButtonTagger
-        onClick={surroundSelection}
-        tag="p"
-      />
-      <ButtonTagger
-        onClick={surroundSelection}
-        label='auto-breaths'
+        label={e.label || e.tag}
         tag='amazon:auto-breaths volume="x-soft" frequency="x-low" duration="x-short"'
         closeTag='amazon:auto-breaths'
-      />
+      />)}
     </div>
   );
 }
